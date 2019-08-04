@@ -81,6 +81,22 @@ public class TranslatorTest {
      * Test of translate method, of class Translator.
      */
     @Test
+    public void testTranslateNoMatch() {
+        System.out.println("translateItem");
+        String command = "Zet verwarming 2 graden hoger";
+        Rules rules = new Rules();
+        rules.add("translation: alias1, alias2");
+        Translator instance = new Translator(command, rules);
+
+        String result = instance.getCommandOut();
+        assertEquals(null, result);
+
+    }
+
+    /**
+     * Test of translate method, of class Translator.
+     */
+    @Test
     public void testTranslateSingleIndex() {
         System.out.println("translateSingleIndex");
         String command = "This is a command line";
