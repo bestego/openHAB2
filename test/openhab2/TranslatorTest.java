@@ -76,6 +76,23 @@ public class TranslatorTest {
         assertEquals("target_temperature", result);
 
     }
+    
+    /**
+     * Test of translate method, of class Translator.
+     */
+    @Test
+    public void testTranslateRegex() {
+        System.out.println("translateRegex");
+        String command = "Schakel lamp eettafel in";
+        Rules rules = new Rules();
+        //rules.add("ON: [ ]aan[ ], schakel.*[ ]in[ ]");
+        rules.add("ON: schakel.*[ ]in[ ]");
+        Translator instance = new Translator(command, rules);
+
+        String result = instance.getCommandOut();
+        assertEquals("ON", result);
+
+    }
 
     /**
      * Test of translate method, of class Translator.
