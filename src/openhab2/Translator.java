@@ -53,7 +53,7 @@ public class Translator {
         commandOut = null;
         for (Alias al : rules.getAliases()) {
             regex = ".*" + al + ".*";
-            if (commandIn.matches(regex)) {
+            if ( commandIn.toLowerCase().matches(regex)) {
                 lastAlias = al.toString();
                 commandOut = rules.get(al).toString();
             }
