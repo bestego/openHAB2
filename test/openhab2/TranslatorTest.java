@@ -81,6 +81,54 @@ public class TranslatorTest {
      * Test of translate method, of class Translator.
      */
     @Test
+    public void testTranslatePercentageNoSpace() {
+        System.out.println("translatePercentageNoSpace");
+        String command = "Zet verlichting op 50%";
+        Rules rules = new Rules();
+        rules.add("[-1,0]: %");
+        Translator instance = new Translator(command, rules);
+
+        String result = instance.getCommandOut();
+        assertEquals("50 %", result);
+
+    }
+
+    /**
+     * Test of translate method, of class Translator.
+     */
+    @Test
+    public void testTranslateCaseInsensitivity() {
+        System.out.println("translateCaseInsensitivity");
+        String command = "AbCdE";
+        Rules rules = new Rules();
+        rules.add("Ok: aBcDe");
+        Translator instance = new Translator(command, rules);
+
+        String result = instance.getCommandOut();
+        assertEquals("Ok", result);
+
+    }
+    
+    /**
+     * Test of translate method, of class Translator.
+     */
+    @Test
+    public void testTranslateLeadingTrailingSpacesInRule() {
+        System.out.println("translateLeadingTrailingSpacesInRule");
+        String command = "Word";
+        Rules rules = new Rules();
+        rules.add("Ok: [ ]Word[ ]");
+        Translator instance = new Translator(command, rules);
+
+        String result = instance.getCommandOut();
+        assertEquals("Ok", result);
+
+    }
+
+    /**
+     * Test of translate method, of class Translator.
+     */
+    @Test
     public void testTranslateRegex() {
         System.out.println("translateRegex");
         String command = "Schakel lamp eettafel in";
