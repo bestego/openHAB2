@@ -31,7 +31,7 @@ public class WordList {
     public int indexOf(String regex) {
         //get pos of word in list matching 
         for (int p = 0; p < wordList.size(); p++) {
-            if (wordList.get(p).matches(regex)) {
+            if (wordList.get(p).matches(".*"+regex+".*")) {
                 return p;
             }
         }
