@@ -32,7 +32,7 @@ public class Translator {
     }
 
     public void setCommandIn(String command) {
-        commandIn = SPACE + command + SPACE;
+        commandIn = SPACE + command.replaceAll("%"," % ") + SPACE;
     }
 
     public String getCommandOut() {
