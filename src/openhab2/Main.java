@@ -37,6 +37,8 @@ public class Main {
             BufferedReader commands = newBufferedReader(Paths.get("commands.txt"), Charset.forName("ISO-8859-1"));
             while ((line = commands.readLine()) != null) {
                 
+                if ( line.matches("[ \t]*")) continue;              // skip empty|blank lines
+                if (line.matches("[ \t]*[#!].*")) continue;         // skip comment lines
                 System.out.println(line);
                 
                 itemXlate.setCommandIn(line); itemXlate.translate();
