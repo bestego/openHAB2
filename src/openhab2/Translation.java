@@ -6,17 +6,25 @@
 package openhab2;
 
 /**
- *
+ * Represents Translation type as part of translation Rule
  * @author erik
  */
 public class Translation {
 
     String translation;
 
+    /**
+     * Constructor sets translation
+     * @param translation 
+     */
     Translation(String translation) {
         this.translation = translation;
     }
     
+    /**
+     * Returns String representation of Translation object
+     * @return transaltion
+     */
     @Override
     public String toString(){
         return translation;
