@@ -10,21 +10,26 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- *
+ * Class represents single index [i]
+ * or multidimensional indeces [i,j,k]
+ * 
  * @author erik
  */
 public class Index {
 
     private final String index;
 
+    /** Constructor sets index 
+     * @param index 
+     */
     public Index(String index) {
         this.index = index;
     }
 
     /**
-     * Extracts index or indices from line containing resprectively [i] or [i,j]
+     * Extracts index/indices from line containing resprectively [i] or [i,j,..]
      *
-     * @return List{@literal <Integer>} containg i [and j]
+     * @return List{@literal <Integer>} containg i [and j or more]
      */
     public List<Integer> getIndices() {
         int openBracket = index.indexOf("[");
