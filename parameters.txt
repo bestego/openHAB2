@@ -1,0 +1,55 @@
+##########################
+#
+# list contains mapping rules from less to more specific
+#
+# spaces are ignored, as well as lines starting with # or !
+# 
+# all rulles are applied top-down to all words of each command line
+#	 in the order as defined in this file.
+#	 later match overrules previous match
+#
+# Syntax: value : key 0{,key}n	
+#
+#	Direct mode:
+#	value = any string; key = any regular expression
+#
+#	Indirect mode
+#	value = [ i ]	value = word[ key + i ]		
+#	value = [ i , j ]	value = word[ key + i ] + word[ key  + j ]
+#	Notes:	i < j , +/- sign of previous match will be prepended if present
+#	
+#
+# 20190613: EvG: V1.1
+##########################
+
+# Verlichting
+1: [ ]dim[ ].*lamp, [ ]dim[ ].*verlichting, lamp.*laagst, verlichting.*laagst, [ ]dim[ ].*[ ]spot
+100: lamp.*[ ]fel[ ], verlichting.*[ ]fel[ ], lamp.*hoogst, verlichting.*hoogst
++20: lamp.*feller, verlichting.*feller, lamp.*hoger, verlichting.*hoger, licht.*feller
+-20: lamp.*minder, verlichting.*minder, lamp.*lager, verlichting.*lager, lamp.*zachter, verlichting.*zachter
+
+# Verwarming
+
+## relatieve waarden
++1: verwarming.*hoger, thermostaat.*hoger
+-1: verwarming.*lager, verwarming.*om[ ]*laag, thermostaat.*lager, thermostaat.*om[ ]*laag
++: graden.*hoger, graad.*hoger, graden.*omhoog, graad.*omhoog
+-: graden.*lager, graad.*lager, graden.*omlaag, graad.*omlaag
+
+## indirecte waarden
+[0]: [0-9]+
+[0,1]: half
+[-1]: graad, graden
+
+
+# Afzuiging, ventilatie
+[-1,0]: minuut, minuten, procent, %, uur, kwartier
+
+# Thuissituatie
+1: aanwezig
+2: slapen
+3: afwezig
+4: kort[ ].*afwezig
+5: vakantie
+
+

@@ -1,0 +1,23 @@
+##########################
+#
+# list contains mapping rules from less to more specific
+#
+# spaces are ignored, as well as lines starting with # or !
+# 
+# all rulles are applied top-down to each command line
+#	 in the order as defined in this file.
+#	 later match overrules previous match
+#
+# Syntax: value : key 0{,key}n	
+#	value = any string; key = any regular expression
+#
+# 20190613: EvG: V1.1
+##########################
+
+ON: [ ]aan[ ], schakel.*[ ]in[ ],
+OFF: [ ]uit[ ]
+
+pause: thermostaat.*afwezig, verwarming.*afwezig, thermostaat.*[ ]uit[ ], verwarming.*[ ]uit[ ]
+schedule: thermostaat.*aanwezig, verwarming.*aanwezig, thermostaat.*[ ]aan[ ], verwarming.*[ ]aan[ ]
+
+null: afzuiging.*[ ]aan, afzuiging.*[ ]uit, ventilatie.*[ ]aan,ventilatie.*[ ]uit

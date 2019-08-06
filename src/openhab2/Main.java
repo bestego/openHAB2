@@ -25,12 +25,9 @@ public class Main {
         Rules valueRules = new Rules();
         valueRules.loadFile(Paths.get("parameters.txt"));
         
-        Translator itemXlate = new Translator();
-        itemXlate.setRules(itemRules);
-        Translator commandXlate = new Translator();
-        commandXlate.setRules(commandRules);
-        Translator valueXlate= new Translator();
-        valueXlate.setRules(valueRules);
+        Translator itemXlate = new Translator(itemRules);
+        Translator commandXlate = new Translator(commandRules);
+        Translator valueXlate= new Translator(valueRules);
 
         String line;
         try {
@@ -39,13 +36,9 @@ public class Main {
                 
                 if ( line.matches("[ \t]*")) continue;              // skip empty|blank lines
                 if (line.matches("[ \t]*[#!].*")) continue;         // skip comment lines
-                System.out.println(line);
+                System.out.println(line);                                            
                 
-                itemXlate.setCommandIn(line); itemXlate.translate();
-                commandXlate.setCommandIn(line); commandXlate.translate();
-                valueXlate.setCommandIn(line); valueXlate.translate();                                
-                
-                System.out.println("=> " + itemXlate.getCommandOut() + ", " + commandXlate.getCommandOut() + ", " + valueXlate.getCommandOut());
+                System.out.println("=> " + itemXlate.translate(line) + ", " + commandXlate.translate(line) + ", " + valueXlate.translate(line));
                 System.out.println();
 
             }

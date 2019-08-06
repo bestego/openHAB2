@@ -1,0 +1,49 @@
+Schakel lamp eettafel aan
+Schakel lamp eettafel in
+Schakel lamp eettafel uit
+Doe verlichting eettafel uit
+Dim verlichting eettafel 
+Zet lamp eettafel fel
+Zet lamp eettafel fel blabla
+Zet licht eettafel feller
+Zet lamp eettafel minder fel
+Zet lamp eettafel op z’n hoogst
+Zet lamp eettafel op z’n laagst
+Dim verlichting eettafel hoger
+Dim verlichting eettafel  lager 
+Dim verlichting eettafel minder
+Dim verlichting eettafel
+Stel verlichting eettafel in op 50 procent
+Doe verlichting eettafel aan op 50 procent
+Dim verlichting eettafel naar 25 %
+Zet spot bank aan
+Zet spotjes bank uit
+Zet spot kast aan
+Zet schemerlamp bank aan op 80%
+
+#verwarming
+zet de verwarming 1 graad lager
+zet de verwarming 2 graden hoger
+zet de verwarming hoger
+zet de verwarming omlaag 
+zet verwarming lager
+zet verwarming op 18
+zet de verwarming aan
+
+# Afzuiging / ventilatie
+Zet afzuiging  aan voor anderhalf uur 
+zet ventilatie aan voor een half uur
+Zet afzuiging aan voor 45 minuten
+Zet afzuiging aan voor 3 kwartier
+zet afzuiging aan voor half uur
+zet afzuiging aan tot half zes
+schakel afzuiging in tot half 7
+zet afzuiging aan tot elf uur [vanavond / ochtend]
+
+woonkamer aan
+schakel verlichting woonkamer in
+
+# HomeStatus
+zet thuissituatie op afwezig
+huis op kort afwezig
+zet huis op aanwezig

@@ -46,20 +46,7 @@ public class TranslatorTest {
         assertEquals("Command", result);
     }
 
-    /**
-     * Test of getCommandOut method, of class Translator.
-     */
-    @Test
-    public void testGetCommandOut() {
-//        System.out.println("getCommandOut");
-//        Translator instance = null;
-//        String expResult = "";
-//        String result = instance.getCommandOut();
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-        assertTrue(true);
-    }
+
 
     /**
      * Test of translate method, of class Translator.
@@ -70,11 +57,11 @@ public class TranslatorTest {
         String command = "Zet verwarming 2 graden hoger";
         Rules rules = new Rules();
         rules.add("target_temperature: temperatuur, verwarming, thermostaat");
-        Translator instance = new Translator(command, rules);
-
-        String result = instance.getCommandOut();
+        Translator instance = new Translator(rules);
+        
+        String result = instance.translate(command);
+        
         assertEquals("target_temperature", result);
-
     }
     
     /**
@@ -86,9 +73,10 @@ public class TranslatorTest {
         String command = "Zet verlichting op 50%";
         Rules rules = new Rules();
         rules.add("[-1,0]: %");
-        Translator instance = new Translator(command, rules);
+        Translator instance = new Translator(rules);
 
-        String result = instance.getCommandOut();
+        String result = instance.translate(command);
+        
         assertEquals("50 %", result);
 
     }
@@ -102,9 +90,10 @@ public class TranslatorTest {
         String command = "AbCdE";
         Rules rules = new Rules();
         rules.add("Ok: aBcDe");
-        Translator instance = new Translator(command, rules);
+        Translator instance = new Translator(rules);
 
-        String result = instance.getCommandOut();
+        String result = instance.translate(command);
+        
         assertEquals("Ok", result);
 
     }
@@ -118,9 +107,10 @@ public class TranslatorTest {
         String command = "Word";
         Rules rules = new Rules();
         rules.add("Ok: [ ]Word[ ]");
-        Translator instance = new Translator(command, rules);
+        Translator instance = new Translator(rules);
 
-        String result = instance.getCommandOut();
+        String result = instance.translate(command);
+        
         assertEquals("Ok", result);
 
     }
@@ -135,9 +125,10 @@ public class TranslatorTest {
         Rules rules = new Rules();
         //rules.add("ON: [ ]aan[ ], schakel.*[ ]in[ ]");
         rules.add("ON: schakel.*[ ]in[ ]");
-        Translator instance = new Translator(command, rules);
+        Translator instance = new Translator(rules);
 
-        String result = instance.getCommandOut();
+        String result = instance.translate(command);
+        
         assertEquals("ON", result);
 
     }
@@ -151,9 +142,10 @@ public class TranslatorTest {
         String command = "Zet verwarming 2 graden hoger";
         Rules rules = new Rules();
         rules.add("translation: alias1, alias2");
-        Translator instance = new Translator(command, rules);
+        Translator instance = new Translator(rules);
 
-        String result = instance.getCommandOut();
+        String result = instance.translate(command);
+        
         assertEquals(null, result);
 
     }
@@ -167,9 +159,9 @@ public class TranslatorTest {
         String command = "This is a command line";
         Rules rules = new Rules();
         rules.add("[1]: command ");
-        Translator instance = new Translator(command, rules);
+        Translator instance = new Translator(rules);
 
-        String result = instance.getCommandOut();
+        String result = instance.translate(command);
 
         assertEquals("line", result);
     }
@@ -183,9 +175,9 @@ public class TranslatorTest {
         String command = "This is a command line";
         Rules rules = new Rules();
         rules.add("[2]: command");
-        Translator instance = new Translator(command, rules);
+        Translator instance = new Translator(rules);
 
-        instance.getCommandOut();
+        String result = instance.translate(command);
     }
 
     /**
@@ -197,9 +189,9 @@ public class TranslatorTest {
         String command = "This is a command line";
         Rules rules = new Rules();
         rules.add("[-4]: command");
-        Translator instance = new Translator(command, rules);
+        Translator instance = new Translator(rules);
 
-        instance.getCommandOut();
+        String result = instance.translate(command);
     }
 
     /**
@@ -211,9 +203,9 @@ public class TranslatorTest {
         String command = "This is a regular command line";
         Rules rules = new Rules();
         rules.add("[-1,1]: regular ");
-        Translator instance = new Translator(command, rules);
+        Translator instance = new Translator(rules);
 
-        String result = instance.getCommandOut();
+        String result = instance.translate(command);
 
         assertEquals("a regular command", result);
     }
@@ -227,9 +219,9 @@ public class TranslatorTest {
         String command = "This is a regular command line";
         Rules rules = new Rules();
         rules.add("[1,-1]: regular ");      // start > end
-        Translator instance = new Translator(command, rules);
+        Translator instance = new Translator(rules);
 
-        instance.getCommandOut();
+        String result = instance.translate(command);
     }
 
     /**
@@ -244,9 +236,9 @@ public class TranslatorTest {
         rules.add("UIT: uit");
         rules.add("ON: [ ]*aan[^a-z]");         // last match overrules
 
-        Translator instance = new Translator(command, rules);
+        Translator instance = new Translator(rules);
 
-        String result = instance.getCommandOut();
+        String result = instance.translate(command);
         assertEquals("ON", result);
     }
 

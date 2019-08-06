@@ -1,0 +1,38 @@
+##########################
+#
+# list contains mapping rules from less to more specific
+#
+# spaces are ignored, as well as lines starting with # or !
+# 
+# all rulles are applied top-down to each command line
+#	 in the order as defined in this file.
+#	 later match overrules previous match
+#
+# Syntax: value : key 0{,key}n	
+#	value = any string; key = any regular expression
+#
+# 20190613: EvG: V1.1
+##########################
+
+   
+	 	
+# Verlichting
+Eettafel: eettafel, tafel voorkamer, lamp eettafel, verlichting eettafel, licht eettafel
+SpotKast: spot kast,spotje kast ,    spot  boven   kast, spotje boven kast
+SpotsBank:spot bank, spots bank, spotjes bank, spot boven bank, spots boven bank, spotjes boven bank, lamp boven bank
+Schemerlamp: schemerlamp, schemerlamp bank, lamp naast bank, schemerlamp naast bank
+duplicate:		 spot    boven   	kast
+gWoonkamer: woonkamer
+gEethoek: eethoek, voorkamer
+gZithoek: zithoek, achterkamer
+
+#Verwarming
+Thermosmart:  verwarming
+
+# Afzuiging, ventilatie
+fanStatus: afzuiging, ventilatie, ventilator,
+
+# HomeStatus
+homeStatus: thuissituatie, [ ]huis[ ]
+
+

@@ -21,10 +21,8 @@ public class Translator {
     public Translator() {
     }
 
-    public Translator(String commandIn, Rules rules) {
-        setCommandIn(commandIn);
+    public Translator(Rules rules) {
         this.rules = rules;
-        translate();
     }
 
     public String getCommandIn() {
@@ -32,12 +30,12 @@ public class Translator {
     }
 
     public void setCommandIn(String command) {
-        commandIn = SPACE + command.replaceAll("%"," % ") + SPACE;
+        commandIn = command;
     }
 
     public String getCommandOut() {
-        if (commandOut == null) {
-            translate();
+        if (commandOut == null && commandIn != null ) {
+            translate(commandIn);
         }
         return commandOut;
     }
@@ -46,14 +44,16 @@ public class Translator {
         this.rules = rules;
     }
 
-    final public void translate() {
+    final public String translate(String command) {
 
+        commandIn = command;
+        command = SPACE + command.replaceAll("%"," % ") + SPACE;
         String regex;
         String lastAlias = null;
         commandOut = null;
         for (Alias al : rules.getAliases()) {
             regex = ".*" + al + ".*";
-            if ( commandIn.toLowerCase().matches(regex)) {
+            if ( command.toLowerCase().matches(regex)) {
                 lastAlias = al.toString();
                 commandOut = rules.get(al).toString();
             }
@@ -69,7 +69,7 @@ public class Translator {
                 endOffset = index.get(1);
             }
 
-            WordList fields = new WordList(commandIn);
+            WordList fields = new WordList(command);
             int currPos = fields.indexOf(lastAlias);
 
             int startIndex = currPos + startOffset;
@@ -80,7 +80,7 @@ public class Translator {
             }
             
             if (startIndex < 0 | fields.size() <= endIndex) {
-                throw new IndexOutOfBoundsException(commandOut + ":" + lastAlias + " >" + commandIn.trim() + "<");
+                throw new IndexOutOfBoundsException(commandOut + ":" + lastAlias + " >" + command.trim() + "<");
             }
 
             StringBuilder buf = new StringBuilder();
@@ -91,13 +91,6 @@ public class Translator {
             commandOut = buf.toString().trim();
 
         }
+        return commandOut;
     }
-
-//    private int relative2absolute(int currPos, int index, int length ){
-//                    if ( 0 <= (currPos + index) & (currPos + index) < length) {
-//                index = currPos + index;
-//            } else {
-//                throw new IndexOutOfBoundsException(commandOut + " : " + commandIn);
-//            }
-//    }
 }
