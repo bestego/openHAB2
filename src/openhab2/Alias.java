@@ -6,17 +6,23 @@
 package openhab2;
 
 /**
- *
+ * Type definition holding string to be matched with (parts of) command line
  * @author erik
  */
 public class Alias {
 
+    /** Holds search string in lower case */
     String alias;
 
     Alias(String alias) {
         this.alias = alias.trim().toLowerCase();
     }
 
+    /**
+     * Tests equality between to Alias objects
+     * @param obj
+     * @return boolean
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj == null && !(obj instanceof Alias)) {
@@ -25,11 +31,19 @@ public class Alias {
         return alias.equals(((Alias) obj).alias);
     }
 
+    /**
+     * Calculates hashCode()
+     * @return int 
+     */
     @Override
     public int hashCode() {
         return alias.hashCode();
     }
 
+    /**
+     * Returns String representing of Alias object 
+     * @return String 
+     */
     @Override
     public String toString() {
         return alias;
