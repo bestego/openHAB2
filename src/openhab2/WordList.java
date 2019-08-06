@@ -38,10 +38,19 @@ public class WordList {
         return -1;
     }
 
+    /**
+     * Returns field matching position pos
+     * @param pos position 
+     * @return String matching field
+     */
     public String get(int pos) {
         return wordList.get(pos);
     }
 
+    /**
+     * Returns number if fields in line
+     * @return int number of fields 
+     */
     public int size() {
         return wordList.size();
     }
