@@ -6,13 +6,20 @@
 package openhab2;
 
 /**
- *
+ * Class representing translation pair Alias -> Translation
  * @author erik
  */
 public class Rule {
+    /** holds search key */
     public Alias alias;
+    /** holds matching value */
     public Translation translation;
     
+    /**
+     * Constructor
+     * @param alias
+     * @param translation 
+     */
     Rule(Alias alias, Translation translation){
         this.alias = alias;
         this.translation = translation;
