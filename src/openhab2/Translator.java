@@ -8,7 +8,7 @@ package openhab2;
 import java.util.List;
 
 /**
- *
+ * 
  * @author erik
  */
 public class Translator {
