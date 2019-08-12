@@ -16,7 +16,7 @@ import org.junit.runners.Suite;
  * @author erik
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({openhab2.WordListTest.class, openhab2.RulesTest.class, openhab2.RuleTest.class, openhab2.TranslationTest.class, openhab2.TranslatorTest.class, openhab2.IndexTest.class, openhab2.AliasTest.class})
+@Suite.SuiteClasses({openhab2.WordListTest.class, openhab2.RulesTest.class, openhab2.RuleTest.class, openhab2.TranslationTest.class, openhab2.TranslatorTest.class, openhab2.IndexTest.class, openhab2.AliasTest.class, openhab2.IndexParameterizedTest.class})
 public class Openhab2Suite {
 
     @BeforeClass
