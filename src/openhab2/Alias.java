@@ -20,7 +20,7 @@ public class Alias {
 
     /**
      * Tests equality between to Alias objects
-     * @param obj
+     * @param obj other Alias object to compare with
      * @return boolean
      */
     @Override
@@ -33,7 +33,7 @@ public class Alias {
 
     /**
      * Calculates hashCode()
-     * @return int 
+     * @return int
      */
     @Override
     public int hashCode() {

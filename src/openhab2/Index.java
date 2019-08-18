@@ -20,7 +20,7 @@ public class Index {
     private final String index;
 
     /** Constructor sets index 
-     * @param index 
+     * @param index full String index representation
      */
     public Index(String index) {
         this.index = index;

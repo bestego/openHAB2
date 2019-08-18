@@ -27,7 +27,7 @@ public class Rules {
 
     /**
      * Adds a translation rule to collection
-     * @param line
+     * @param line translation definition
      * @throws IllegalArgumentException when illegal rule definition
      */
     public void add(String line) {
@@ -88,8 +88,8 @@ public class Rules {
 
     /**
      * Loads rule definitions from external file
-     * @param file
-     * @throws IOException 
+     * @param file full pathName 
+     * @throws IOException file read error
      */
     public void loadFile(Path file) throws IOException {
         loadLines(Files.lines(file));

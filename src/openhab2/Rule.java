@@ -6,7 +6,7 @@
 package openhab2;
 
 /**
- * Class representing translation pair Alias -> Translation
+ * Class representing translation pair Alias {@literal ->} Translation
  * @author erik
  */
 public class Rule {
