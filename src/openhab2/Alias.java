@@ -7,7 +7,7 @@ package openhab2;
 
 /**
  * Type definition holding string to be matched with (parts of) command line
- * @author erik
+ * @author erik van Gompel
  */
 public class Alias {
 
