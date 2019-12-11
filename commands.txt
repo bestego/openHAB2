@@ -28,6 +28,7 @@ zet de verwarming hoger
 zet de verwarming omlaag 
 zet verwarming lager
 zet verwarming op 18
+zet de verwarming op 19 graden
 zet de verwarming aan
 
 # Afzuiging / ventilatie
